@@ -1,5 +1,12 @@
 - block:
 
+  - name: ensure gpg is installed
+    package:
+      pkg: gpg
+
+  - name: ensure dirmngr is installed
+    package:
+      pkg: dirmngr
 
   - name: Download the gpg key for verification of borg
     command: gpg --no-default-keyring --keyring {{borg_gpg_keyring}} --receive-keys {{borg_gpg_fingerprint}}
